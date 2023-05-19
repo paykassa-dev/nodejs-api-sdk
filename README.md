@@ -24,7 +24,7 @@ import {CheckBalanceRequest} from "paykassa-api-sdk/lib/dto.js";
 import {Currency, System} from "paykassa-api-sdk/lib/struct.js";
 
 const request = new CheckBalanceRequest()
-    .setShop('12345')
+    .setShopId('12345')
 
 paymentApi.checkBalance(request).then(response => {
     console.log(response.getBalance(System.BITCOIN, Currency.BTC))
@@ -39,7 +39,7 @@ import {MakePaymentRequest} from "paykassa-api-sdk/lib/dto.js";
 import {CommissionPayer, Currency, System, TransactionPriority} from "paykassa-api-sdk/lib/struct.js";
 
 const request = new MakePaymentRequest()
-    .setShop('12345')
+    .setShopId('12345')
     .setAmount('1.02')
     .setPriority(TransactionPriority.MEDIUM)
     .setSystem(System.BITCOIN)
@@ -121,10 +121,10 @@ import {GetPaymentUrlRequest} from "paykassa-api-sdk/lib/dto.js";
 import {CommissionPayer, Currency, System} from "paykassa-api-sdk/lib/struct.js";
 
 const request = new GetPaymentUrlRequest()
-    .setSystem(System.PERFECT_MONEY)
-    .setCurrency(Currency.USD)
+    .setSystem(System.TRON_TRC20)
+    .setCurrency(Currency.USDT)
     .setPaidCommission(CommissionPayer.CLIENT)
-    .setAmount(110)
+    .setAmount("110")
     .setComment('test')
 
 merchantApi.getPaymentUrl(request).then(response => {
